@@ -12,6 +12,7 @@ function greetPeople(people) {
   return greeting;
 }
 
+console.log(result);
 /*The console logs:
 Hello Irina
 Hello IrinaAshleigh
