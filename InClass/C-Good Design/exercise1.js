@@ -40,7 +40,8 @@
    */
 
 
-function myFunction(salary, taxCode, incomeTax1, incomeTax2, ownsCar) {
+function redeemMoney(salary, taxCode, incomeTax1, incomeTax2) {
+var incomeTax = [incomeTax1, incomeTax2]; 
   var totalIncomeTax = incomeTax1 + incomeTax2;
   var studentLoan = (salary - 17775) * 0.09;
   var originalSalary = salary;
@@ -61,9 +62,9 @@ function myFunction(salary, taxCode, incomeTax1, incomeTax2, ownsCar) {
   salary = salary - deductions[2];
 
   return (
-    "Your gross income is £" +
+    "Your gross income is ï¿½" +
     originalSalary.toString() +
-    " and your net income is £" +
+    " and your net income is ï¿½" +
     salary.toString() +
     "."
   );
