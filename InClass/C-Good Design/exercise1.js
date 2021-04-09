@@ -1,5 +1,3 @@
-
-
 /*Task. go through all of these issues and make appropriate improvements to the code.
 
 1. Naming: the function has a bad name, myFunction() tells you nothing about
@@ -39,14 +37,18 @@
    
    */
 
-
 function redeemMoney(salary, taxCode, incomeTax1, incomeTax2) {
-var incomeTax = [incomeTax1, incomeTax2]; 
+  incomeTax = [incomeTax1, incomeTax2];
   var totalIncomeTax = incomeTax1 + incomeTax2;
-  var studentLoan = (salary - 17775) * 0.09;
+  var studentLoan = getStudentLoan(17775, 0.09, salary);
   var originalSalary = salary;
   var nationalInsurance = null;
+  var nationalInsurance = getNationalInsurance(taxCode, salary);
+  salary = salary - nationalInsurance - totalIncomeTax - studentLoan;
+  return `Your gross income is $ ${originalSalary} and your net income is $ ${salary.toString()} .`;
+}
 
+function getNationalInsurance(taxCode, salary) {
   if (taxCode === "1150L") {
     nationalInsurance = salary * 0.1;
   } else if (taxCode === "ST") {
@@ -54,20 +56,13 @@ var incomeTax = [incomeTax1, incomeTax2];
   } else {
     nationalInsurance = salary * 0.08;
   }
-
-  var deductions = [nationalInsurance, totalIncomeTax, studentLoan];
-
-  salary = salary - deductions[0];
-  salary = salary - deductions[1];
-  salary = salary - deductions[2];
-
-  return (
-    "Your gross income is �" +
-    originalSalary.toString() +
-    " and your net income is �" +
-    salary.toString() +
-    "."
-  );
+  return nationalInsurance;
 }
 
-console.log(myFunction(28000, "1150L", 1000, 580, false));
+function getStudentLoan(sum, percent, salary) {
+  return (salary - sum) * percent;
+}
+
+//var deductions = [nationalInsurance, totalIncomeTax, studentLoan];
+
+console.log(redeemMoney(28000, "1150L", 1000, 580, false));
