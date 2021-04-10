@@ -16,6 +16,12 @@ function combineArrays(arr1, arr2) {
   return arr1.concat(arr2);
 }
 const combineArrays = (arr1, arr2) => [...arr1, arr2];
+//OR
+/*
+const combineArrays = (arr1, arr2) => {
+  const newArray = [...arr1,arr2];
+  return newArray;
+  */
 
 //use destructuring to return the object's cyf property
 function destructuring(obj) {
