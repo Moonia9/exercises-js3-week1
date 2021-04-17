@@ -13,9 +13,9 @@ let p = new Polygon("Polygon", 300, 400);
 p.sayName();
 console.log("The area of this polygon is " + p.area);
 
-class Rectangle extends Polygon {
+class Rectangle extends Polygon { //The Rectangle "can use" everything that Polygon has (from parent -> child)
   constructor(height, width) {
-    super(height, width);
+    super(height, width); //this comes from the Parent Class as well
     this.name = "Rectangle";
     this.sides = 4;
     //this.area = this.height * this.width;
