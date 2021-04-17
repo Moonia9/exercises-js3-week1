@@ -55,17 +55,18 @@ let t = new Triangle(50, 60);
 t.sayName();
 console.log("The area of this polygon is " + t.area);
 
+const pi = Math.PI;
 //Circle Class
 class Circle extends Polygon {
   constructor(diameter, radius) {
     super(diameter, radius);
-    this.diameter = 2 * radius;
+    this.radius = radius;
+    this.diameter = 2 * this.radius;
     this.name = "Circle";
     //this.sides = 0;
-    //this.area = (Math.sqrt(radius) * 22/ 7;
   }
   get area() {
-    return (Math.sqrt(this.radius) * 22) / 7;
+    return pi * Math.pow(this.radius, 2);
   }
   sayName() {
     console.log("Hi I am a polygon and my name is " + this.name + ".");
